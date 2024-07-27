@@ -29,6 +29,29 @@ const color = reactive({
 	green: 0,
 	blue: 0,
 });
+
+function generateColor() {
+	// akses dengan ref
+	// red.value = Math.floor(Math.random() * 255);
+	// green.value = Math.floor(Math.random() * 255);
+	// blue.value = Math.floor(Math.random() * 255);
+
+	// akses dengan reactive
+	color.red = Math.floor(Math.random() * 255);
+	color.green = Math.floor(Math.random() * 255);
+	color.blue = Math.floor(Math.random() * 255);
+}
+
+const refValue = ref("Hello, refValue!"); // klo si ref dijadiin objek maka gabisa diganti valuenya
+const reactiveValue = reactive({
+	greeting: "Hello, reactiveValue!",
+});
+
+refValue.value = true;
+reactiveValue.greeting = false;
+
+console.log("ref value", refValue);
+console.log("reactive value", reactiveValue);
 </script>
 
 <template>
@@ -56,6 +79,7 @@ const color = reactive({
 				v-model="color.blue"
 				id=""
 			/>
+			<button @click="generateColor()">Generate</button>
 		</div>
 	</main>
 </template>
