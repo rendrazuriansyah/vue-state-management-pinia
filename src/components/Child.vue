@@ -1,8 +1,10 @@
 <script setup>
-import { inject } from "vue";
+// import { inject } from "vue";
 import GrandChild from "./GrandChild.vue";
+import { useNumbers } from "../stores/numbers.js";
 
-const numbers = inject("numbers");
+const { numbers } = useNumbers();
+// const numbers = inject("numbers");
 </script>
 
 <template>
